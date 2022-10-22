@@ -1,16 +1,10 @@
 package net.project.clef.music.service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import net.project.clef.music.entity.Music;
-import net.project.clef.music.repository.MusicRepository;
 
-@Service
+/* @Service
 public class MusicService {
 
     @Autowired
@@ -20,31 +14,32 @@ public class MusicService {
         return musicRepository.findAll();
     }
     public Music store(Music add) {
-        return musicRepository.save(add); //guarda el repositorio
+        return musicRepository.save(add);
     }
-    public Map<String,String> delete(Long id) {
-        Map<String, String> message = new HashMap<>();
-        if(musicRepository.findById(id).isPresent()){
-           musicRepository.deleteById(id);
-           message.put("message", "Eliminado correctamente");
-           return message;
-        }
-        message.put("message", "Error al eliminar producto");
-        return message;    
+    public void deleteMusic(Long id) {
+        musicRepository.deleteById(id);   
     }
 
-    public Music update(Long id, Music modifyMusic) {
-        return musicRepository.findById(id)
-        .map((music)->{
-            music.setAlbum(modifyMusic.getAlbum());
-            music.setArtist(modifyMusic.getArtist());
-            music.setDate(modifyMusic.getDate());
-            music.setImagealbum(modifyMusic.getImagealbum());
-            return musicRepository.save(music);
-        })
-        .orElseGet(()->{
-           return musicRepository.save(modifyMusic);
-        });      
+public Music updateMusic(Long id, Music musicDetails) {
+    Music music = musicRepository.findById(id).get();
+    music.setAlbum(musicDetails.getAlbum());
+    music.setArtist(musicDetails.getArtist());
+    music.setDate(musicDetails.getDate());
+    music.setImagealbum(musicDetails.getImagealbum());
+    
+    return musicRepository.save(music); 
     }    
 
+}
+ */
+public interface MusicService {
+    List<Music> getAll();
+
+    Music getById(Long id);
+
+    Music insert(Music music);
+
+    void updateMusic(Long id, Music music);
+
+    void deleteMusic(Long musicId);
 }
