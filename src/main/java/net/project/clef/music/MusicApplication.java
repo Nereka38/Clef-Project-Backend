@@ -25,18 +25,21 @@ public class MusicApplication implements CommandLineRunner {
 					.artist("5SOS")
 					.album("5SOS5")
 					.date("01/10/2022")
+					.imagealbum("https://i.scdn.co/image/ab67616d0000b2738bfbaac83000c56775070328")
 					.build();
 	
 			Music music2 = Music.builder()
 					.artist("Beyoncé")
 					.album("Renaissance")
-					.date("08/10/2022")
+					.date("29/07/2022")
+					.imagealbum("https://i.scdn.co/image/ab67616d0000b2730e58a0f8308c1ad403d105e7")
 					.build();
 	
 			Music music3 = Music.builder()
-					.artist("5SOS")
-					.album("5SOS5")
-					.date("01/10/2022")
+					.artist("Harry Styles")
+					.album("Harry's House")
+					.date("20/05/2022")
+					.imagealbum("https://i.scdn.co/image/ab67616d0000b2732e8ed79e177ff6011076f5f0")
 					.build();
 	
 			musicRepository.save(music1);

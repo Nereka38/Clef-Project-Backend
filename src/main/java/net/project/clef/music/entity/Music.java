@@ -26,4 +26,6 @@ public class Music {
     @Column(name = "date")
     private String date;
 
+    @Column(name = "imagealbum")
+    private String imagealbum;
 }
