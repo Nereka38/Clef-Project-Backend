@@ -5,6 +5,7 @@ import net.project.clef.music.service.MusicService;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -53,6 +54,8 @@ import org.springframework.http.ResponseEntity;
 
 @RestController
 @RequestMapping("/api/musics")
+@CrossOrigin("http://127.0.0.1:5173/")
+
 public class MusicController {
     MusicService musicService;
 
