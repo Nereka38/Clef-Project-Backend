@@ -54,6 +54,7 @@ import org.springframework.http.ResponseEntity;
 
 @RestController
 @RequestMapping("/api/musics")
+/* @CrossOrigin("http://localhost:8080") */
 @CrossOrigin("http://127.0.0.1:5173/")
 
 public class MusicController {
@@ -88,7 +89,7 @@ public class MusicController {
         return new ResponseEntity<>(musicService.getById(musicId), HttpStatus.OK);
     }
     
-    @DeleteMapping({"/{musicId}"})
+    @DeleteMapping({"/delete/{musicId}"})
     public ResponseEntity<Music> deleteMusic(@PathVariable("musicId") Long musicId) {
         musicService.deleteMusic(musicId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
