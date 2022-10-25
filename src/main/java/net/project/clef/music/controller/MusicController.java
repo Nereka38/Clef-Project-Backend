@@ -70,9 +70,9 @@ public class MusicController {
         return new ResponseEntity<>(musics, HttpStatus.OK);
     }
   
-    @GetMapping({"/{musicId}"})
-    public ResponseEntity<Music> getMusic(@PathVariable Long musicId) {
-        return new ResponseEntity<>(musicService.getById(musicId), HttpStatus.OK);
+    @GetMapping({"/{id}"})
+    public ResponseEntity<Music> getMusic(@PathVariable Long id) {
+        return new ResponseEntity<>(musicService.getById(id), HttpStatus.OK);
     }
     
     @PostMapping
@@ -83,15 +83,15 @@ public class MusicController {
         return new ResponseEntity<>(music1, httpHeaders, HttpStatus.CREATED);
     }
    
-    @PutMapping({"/{musicId}"})
-    public ResponseEntity<Music> updateMusic(@PathVariable("musicId") Long musicId, @RequestBody Music music) {
-        musicService.updateMusic(musicId, music);
-        return new ResponseEntity<>(musicService.getById(musicId), HttpStatus.OK);
+    @PutMapping({"/{id}"})
+    public ResponseEntity<Music> updateMusic(@PathVariable("id") Long id, @RequestBody Music music) {
+        musicService.updateMusic(id, music);
+        return new ResponseEntity<>(musicService.getById(id), HttpStatus.OK);
     }
     
-    @DeleteMapping({"/delete/{musicId}"})
-    public ResponseEntity<Music> deleteMusic(@PathVariable("musicId") Long musicId) {
-        musicService.deleteMusic(musicId);
+    @DeleteMapping({"/delete/{id}"})
+    public ResponseEntity<Music> deleteMusic(@PathVariable("id") Long id) {
+        musicService.deleteMusic(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

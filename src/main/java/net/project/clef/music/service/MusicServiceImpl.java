@@ -45,7 +45,7 @@ public class MusicServiceImpl implements MusicService {
     }
 
     @Override
-    public void deleteMusic(Long musicId) {
-        musicRepository.deleteById(musicId);
+    public void deleteMusic(Long id) {
+        musicRepository.deleteById(id);
     }
 }
